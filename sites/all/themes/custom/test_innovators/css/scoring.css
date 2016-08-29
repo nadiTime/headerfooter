@@ -1,0 +1,123 @@
+.st_answerText
+{
+	display: inline;
+	margin-right: 5px;
+}
+
+.st_answerChoice
+{
+	display: inline;
+	margin-right: 10px;
+}
+
+.st_correctAnswer
+{
+	font-weight: bold;
+	color: #3c3;
+}
+
+.st_incorrectAnswer
+{
+	font-weight: bold;
+	color: #f33;
+}
+
+.st_summaryLabel
+{
+	display: inline;
+}
+
+.st_summaryLabel
+{
+	display: inline;
+}
+
+#st_resultsContainer
+{
+	display: none;
+}
+
+#st_numberAnswersCorrect,
+.st_breakdownNumberAnswersCorrect
+{	
+	color: #3c3;
+}
+
+#st_numberAnswersIncorrect,
+#st_numberAnswersOmitted,
+.st_breakdownNumberAnswersIncorrect,
+.st_breakdownNumberAnswersOmitted
+{
+	color: #f33;
+}
+
+#st_sectionContainers
+{
+	background-color: #EDF5FA;
+	padding: 10px 15px;
+}
+
+#st_sections
+{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	background-color: #EDF5FA;
+}
+
+.st_sectionTab
+{
+	display: inline;
+	margin: 0 0 10px 0;
+	cursor: pointer !important;
+	padding: 5px 15px;
+}
+
+.st_sectionTab:hover
+{
+	font-weight: bold;
+	background-color: #D7EBF7;
+}
+
+.st_selectedTab
+{
+	font-weight: bolder !important;
+	background-color: #C2E4F9 !important;
+}
+
+#st_sectionHeader
+{
+	font-size: 140%;
+	font-weight: bold;
+	margin: 10px 0;
+	padding: 5px 0;
+}
+
+#st_resultsByType
+{
+	margin: 0;
+	padding: 0;
+}
+
+#st_resultsByTypeContainers
+{
+	padding-left: 5px;
+}
+
+.st_noBorderTable tbody
+{
+	border-top: 0;
+}
+
+.st_resultsByTypeColumn
+{
+	width: 200px;
+}
+
+.st_resultTypeTab
+{
+	display: block;
+	margin: 2px;
+	cursor: pointer !important;
+	padding: 5px 15px;
+}

@@ -1,0 +1,257 @@
+<pre>
+#breadcrumbs{display: none;}
+</pre>
+
+
+.sidebar .block h2{
+  font-size: 14px;
+  line-height: 30px;
+  margin: 0 0 12px;
+}
+.sidebar .block{
+  margin: 0 0 30px 0;
+}
+.page-content{
+  margin-bottom: 30px;
+}
+#search-block-form{
+  overflow: hidden;
+}
+.sidebar .block-search .form-submit{
+  text-indent: -9999px;
+}
+.sidebar .block-search .form-text{
+  float: left;
+}
+.form-item{
+  margin-bottom: 20px;
+}
+.google-map-container iframe{
+  width: 100%;
+}
+.form-item .error{
+  border: 1px solid #DE5959;
+}
+.filter-guidelines,.filter-wrapper .form-item{
+  padding: 0;
+}
+ul.tabs li a,ul.tabs li.active a{
+  border-bottom: 0 none;
+}
+ul.tabs:after{
+  clear: both;
+}
+ul.tabs:before, ul.tabs:after{
+  content: "";
+  display: table;
+  line-height: 0;
+}
+.content.display-submitted{
+  padding: 0 0 0 63px;
+}
+.node{margin: 40px 0;}
+.feed-icon{
+  display: block;
+  margin-top: 20px;
+}
+#comments{
+  margin: 30px 0 25px;
+}
+.user-picture img{
+  border-radius: 2px 2px 2px 2px;
+  float: left;
+  width: 60px;
+  height: 60px;
+}
+.node .user-picture, .comment .user-picture{
+  float: left;
+}
+.comment{
+  padding: 10px 0 15px;
+}
+.comment h3{
+  font-size: 13px;
+  padding-right: 5px;
+}
+.comment h3 a{
+  font-size: 13px;
+  color: #333333;
+  font-weight: 600;
+}
+ul.links.inline li{
+  display: inline;
+  margin-right: 5px;
+}
+.permalink{
+  margin-left: 5px;
+}
+#comments h2.title{
+  margin-bottom: 25px;
+  font-size: 16px;
+  line-height: 34px;
+}
+.page-content .node-teaser.first-child{
+  margin-top: 0;
+}
+.sf-sub-indicator{
+  display: none;
+}
+.sf-menu.sf-horizontal.sf-shadow ul, .sf-menu.sf-vertical.sf-shadow ul, .sf-menu.sf-navbar.sf-shadow ul ul{
+  background: none;
+  padding: 0 !important;
+}
+#footer .block h2{
+  color: #FFFFFF;
+  font-size: 14px;
+  margin: 0 0 15px;
+  padding: 0;
+  line-height: 30px;
+}
+.ls-defaultskin{
+  border: 0 none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+.ls-nav-prev,.ls-nav-next{
+  visibility: visible;
+}
+#header .block{
+  clear: both;
+}
+#header #search-block-form{
+  float: right;
+}
+.sidebar .block .content{
+  overflow: hidden;
+}
+.tags .tagclouds{
+  font-size: 100%;
+}
+.region-home-recent-news .block h2, .region-home-testimonial .block h2{
+  margin: 28px 0 22px;
+  font-size: 16px;
+  line-height: 34px;
+}
+.icon-box-container{
+  margin: 0;
+}
+.front .page-content{
+  margin: 0;
+  padding: 0;
+}
+.icon-box i,.icon-box span{
+  color: #404040;
+  float: left;
+  font-size: 31px;
+  margin: 8px 0 0;
+}
+#search-form .form-submit{
+  margin-top: 20px;
+}
+.form-type-checkbox label, #edit-panes-payment-payment-method label{
+  display: inline;
+  float: none;
+}
+ul.inline li{
+  display: inline;
+}
+.form-submit{
+  margin-right: 5px;
+}
+.display-price{
+  clear: none;
+  float: none;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+}
+.page-node .node-product .flex-direction-nav a{
+  width: 20px;
+  height: 20px;
+}
+#paypal-includes img{
+  display: inline;
+}
+.price{
+  color: #777777;
+  font-size: 20px;
+  font-weight: 300;
+  margin: 0 0 15px;
+}
+#line-items-div td.title{
+  font-weight: normal;
+}
+#uc-cart-checkout-form .form-actions{
+  display: block;
+  clear: both;
+  padding-top: 20px;
+}
+td.price,th.price{
+  font-size: 100%;
+  font-weight: normal;
+  line-height: 1.5em;
+  margin: 0;
+
+}
+.node-add-to-cart{
+  margin-bottom: 15px;
+}
+.node-product .meta h2{
+  color: #333333;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 26px;
+  margin: 0 0 7px;
+}
+.node-product .meta{
+  margin-bottom: 0;
+}
+.node-product .price, .node-product .uc-price{
+  color: #777777;
+  font-size: 20px;
+  font-weight: 300;
+  margin: 0 0 15px;
+}
+.node-product .model{
+  font-size: 100%;
+  font-weight: normal;
+}
+.page-products .page-content{
+  min-height: 300px;
+  padding-bottom: 30px;
+  overflow: hidden;
+}
+.sidebar .block .cart-block-title-bar{
+  color: #333333;
+  font-weight: 600;
+}
+#edit-panes-payment-payment-method img{
+  display: inline;
+}
+.cart-block-summary-links ul.links li{
+  padding-left: 0;
+}
+.item-description h5 a{
+  color: #333333;
+}
+.view-products .pagination{
+  margin-left: 10px;
+  clear: both;
+}
+.four-shop{
+  min-height: 300px;
+}
+
+
+.page-node .node{
+        margin-top: 0;
+}
+.page-node .node .meta{
+    margin: 0;
+    padding: 0;
+    line-height: 0;
+}
+.page-node .page-content{
+    padding-top: 10px;
+}
+

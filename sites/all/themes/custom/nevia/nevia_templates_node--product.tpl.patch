@@ -1,0 +1,30 @@
+--- templates/node--product.tpl.php	2016-02-24 09:36:15.515835901 -0800
++++ templates/node--product.tpl.php	2016-02-25 10:00:51.965813682 -0800
+@@ -162,11 +162,6 @@
+         <a href="#tab-description"><?php print t('Description'); ?></a>
+       </li>
+     <?php endif; ?>
+-    <?php if (!empty($content['comments'])): ?>
+-      <li class="reviews_tab">
+-        <a href="#tab-reviews"><?php print t('Reviews'); ?> (<?php print $node->comment_count; ?>)</a>
+-      </li>
+-    <?php endif; ?>
+   </ul>
+
+
+@@ -183,14 +178,5 @@
+     <?php endif; ?>
+
+
+-    <?php if (!empty($content['comments'])): ?>
+-      <div class="panel tab-content" id="tab-reviews">
+-        <div id="reviews">
+-          <?php print render($content['comments']); ?>
+-
+-        </div>
+-      </div>
+-    <?php endif; ?>
+-
+   </div>
+ <?php endif; ?>
+\ No newline at end of file

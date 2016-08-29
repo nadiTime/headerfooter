@@ -1,0 +1,94 @@
+.MB_show { display: block; }
+.MB_hide { display: none; }
+#header-wrapper #search-box { top:14px;right:4px;line-height:16px; }
+.MB_reduced_price del { color:#666; font-size:.8em; }
+.MB_reduced_price strong { color:#990000; }
+/*.views-field { border-left: 0px; border-right: 0px;}*/
+#edit-checkout--2, .list-add-to-cart
+{
+  -webkit-box-shadow:rgba(0,0,0,0.2) 0 1px 0 0;
+  -moz-box-shadow:rgba(0,0,0,0.2) 0 1px 0 0;
+  box-shadow:rgba(0,0,0,0.2) 0 1px 0 0;
+  color:#333;
+  background-color:#FA2;
+  border-radius:5px;
+  -moz-border-radius:5px;
+  -webkit-border-radius:5px;
+  border:1.5px solid #05296E;
+  font-family:'Helvetica Neue',Arial,sans-serif;
+  font-size:16px;
+  font-weight:700;
+  height:32px;
+  padding:4px 16px;
+  text-shadow:#FE6 0 1px 0
+}
+
+
+
+/*views-field-title*/
+
+
+/*
+These are for the "site notice" module that
+displays server notifcations in the head
+*/
+
+#site-notice-top .links {
+
+}
+
+#site-notice-top p {
+        text-align: center;
+        background: black;
+        color: white;
+        padding: 1em;
+        font-size: 1.2em;
+}
+
+/*
+UUser register page, radio buttons take up tons of space and look stupid
+*/
+.form-radios .form-item {
+  display: inline-block;
+}
+
+#edit-user-roles label {
+  display: inline;
+}
+
+#edit-user-roles .form-item + .form-item {
+  padding-left: 10px;
+}
+
+/*
+Captcha table layout is screwed up by an input box, which is weird, and also the padding is funny
+*/
+#recaptcha_response_field {
+  display: inline;
+}
+
+.captcha {
+  border: 2px groove threedface;
+  margin: 0 2px 1em 2px;
+  padding: 0.5em;
+}
+
+/*
+Recurly on their own signup page uses color: inherit; which makes it white...
+*/
+.recurly select {
+  color: black;
+}
+/* placeholders for inputs are floating divs on top of the input and they aren't centered */
+.recurly .field .placeholder {
+  padding: 9px 12px;
+}
+
+/* signup page with subscriptions: /subscription/register; */
+#user-register-form .form-item {
+  margin-bottom:10px;
+}
+#user-register-form label {
+  font-size:22px;
+  font-weight:bold;
+}

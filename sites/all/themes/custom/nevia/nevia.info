@@ -1,0 +1,62 @@
+name = Nevia
+description = Nevia theme, developed by <a href="http://tabvn.com/">Tabvn</a>.
+core = 7.x
+
+
+scripts[] = js/jquery.modernizr.js
+scripts[] = js/jquery.easing.1.3.js
+scripts[] = js/jquery.jcarousel.js
+scripts[] = js/nevia.js
+scripts[] = js/custom.js
+
+
+; System stylesheets we'd like to avoid:
+stylesheets[all][] = system.messages.css
+stylesheets[all][] = system.menus.css
+stylesheets[all][] = system.theme.css
+
+
+regions[header] = Header
+regions[user_menu] = User menu
+regions[main_menu] = Main menu
+regions[slider] = Slider
+regions[highlighted] = Highlighted
+regions[sidebar_first]  = Left sidebar
+regions[sidebar_second] = Right sidebar
+regions[content] = Content
+regions[home_recent_work] = Home recent work
+regions[home_recent_news] = Home recent news
+regions[home_testimonial] = Home testimonial
+regions[help] = Help
+regions[page_top] = Page Top
+regions[page_bottom] = Page Bottom
+
+regions[footer_first] = Footer first column
+regions[footer_second] = Footer second column
+regions[footer_third] = Footer third column
+regions[footer_fourth] = Footer fourth column
+regions[footer] = Footer
+
+
+features[] = logo
+features[] = name
+features[] = slogan
+features[] = node_user_picture
+features[] = comment_user_picture
+features[] = comment_user_verification
+features[] = favicon
+features[] = main_menu
+features[] = secondary_menu
+
+settings[toggle_name] = 0
+settings[toggle_slogan] = 1
+settings[toggle_node_user_picture] = 0
+
+settings[main_menu_style] = style-1
+settings[homepage_title] = 1
+settings[nevia_theme_color] = #169FE6
+settings[theme_background_image] = noise.png
+
+;custom js and css for the scoring
+scripts[] = monkeybusiness.js
+stylesheets[all][] = monkeybusiness.css

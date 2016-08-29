@@ -1,0 +1,35 @@
+--- css/nevia.css	2014-04-28 04:57:48.000000000 -0700
++++ css/nevia.css	2014-08-27 11:23:35.000000000 -0700
+@@ -1,3 +1,8 @@
++<pre>
++#breadcrumbs{display: none;}
++</pre>
++
++
+ .sidebar .block h2{
+   font-size: 14px;
+   line-height: 30px;
+@@ -236,9 +241,17 @@
+ .four-shop{
+   min-height: 300px;
+ }
+-#portfolio-wrapper .one-third .portfolio-item{min-height: 300px;}
+-#portfolio-wrapper .four .portfolio-item{min-height: 244px;}
+-.pager .pager-ellipsis, .pager li{
+-	display: block;
+-	float: left;
++
++
++.page-node .node{
++        margin-top: 0;
+ }
+\ No newline at end of file
++.page-node .node .meta{
++    margin: 0;
++    padding: 0;
++    line-height: 0;
++}
++.page-node .page-content{
++    padding-top: 10px;
++}
++
