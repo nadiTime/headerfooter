@@ -31,11 +31,6 @@ function menu_attributes_menu_link_alter(&$item, $menu) {
         unset($item['options']['attributes'][$key]);
       }
     }
-
-    // Convert classes to an array.
-    if (isset($item['options']['attributes']['class']) && is_string($item['options']['attributes']['class'])) {
-      $item['options']['attributes']['class'] = array_filter(explode(' ', $item['options']['attributes']['class']));
-    }
   }
 }
 
@@ -51,6 +46,22 @@ function menu_attributes_menu_attribute_info() {
       '#type' => 'checkbox'
     ),
   );
+  $info['disabled_link'] = array(
+    'label' => t('Disable this link'),
+    'description' => t('For nested links.'),
+    'scope' => array(MENU_ATTRIBUTES_LINK),
+    'form' => array(
+      '#type' => 'checkbox'
+    ),
+  );
+  $info['info_link'] = array(
+    'label' => t('Info link'),
+    'description' => t('Simply presents the link text i.e. phone number.'),
+    'scope' => array(MENU_ATTRIBUTES_LINK),
+    'form' => array(
+      '#type' => 'checkbox'
+    ),
+  );    
   $info['target'] = array(
     'label' => t('Target'),
     'description' => t('Specifies where to open the link. Using this attribute breaks XHTML validation.'),
@@ -206,14 +217,6 @@ function _menu_attributes_form_alter(array &$form, array $item = array(), array 
     // to ensure our field gets saved as the title attribute.
     array_unshift($complete_form['#submit'], '_menu_attributes_form_submit');
   }
-
-  // Restrict access to the new form elements.
-  $has_visible_children = (bool) element_get_visible_children($form['options']['attributes']);
-  $user_has_access = user_access('administer menu attributes');
-  $form['options']['attributes']['#access'] = ($has_visible_children && $user_has_access);
-
-  $has_visible_children = (bool) element_get_visible_children($form['options']['item_attributes']);
-  $form['options']['item_attributes']['#access'] = ($has_visible_children && $user_has_access);
 }
 
 /**
