@@ -5824,7 +5824,9 @@ button.close {
 .container.panel {
   border-top: 0;
 }
-
+#wrapper{
+  background-color: #ffffff;
+}
 #content{
   background-color: #ffffff;
 }

@@ -18,6 +18,7 @@ stylesheets[all][] = system.theme.css
 
 regions[header] = Header
 regions[user_menu] = User menu
+regions[logged_user_menu] = Logged User menu
 regions[main_menu] = Main menu
 regions[slider] = Slider
 regions[highlighted] = Highlighted
@@ -31,10 +32,6 @@ regions[help] = Help
 regions[page_top] = Page Top
 regions[page_bottom] = Page Bottom
 
-regions[footer_first] = Footer first column
-regions[footer_second] = Footer second column
-regions[footer_third] = Footer third column
-regions[footer_fourth] = Footer fourth column
 regions[footer] = Footer
 
 

@@ -1,0 +1,88 @@
+<?php
+/**
+ * @file
+ * Module file for Logos module
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function logos_menu() {
+ 	$items = array();
+	$items['admin/config/media/logos'] = array(
+		'title' => 'Sites logos config',
+		'page callback' => 'drupal_get_form',
+		'page arguments' => array('logos_form'),
+		'access arguments' => array('administer users'),
+		'type' => MENU_NORMAL_ITEM,
+	);
+
+	return $items;
+}
+
+/**
+ * Admin form to configurable welcome message
+ */
+function logos_form($form, &$form_state) {
+	$form['#validate'][] = 'logos_settings_form_validate';
+  	$form['header_logo'] = array(
+		'#type' => 'textfield',
+		'#title' => t("Header's logo"),
+		'#size' => 60,
+		'#maxlength' => 124,
+		'#default_value' => variable_get('header_logo','/sites/all/...'),
+		'#description' => t('Enter a path to the logo'),
+	);
+	$form['header_logo_url'] = array(
+		'#type' => 'textfield',
+		'#title' => t("Header's logo URL"),
+		'#size' => 60,
+		'#maxlength' => 124,
+		'#default_value' => variable_get('header_logo_url','/'),
+		'#description' => t('Enter the url for the logo link'),
+	);
+	$form['footer_logo'] = array(
+		'#type' => 'textfield',
+		'#title' => t("Footer's logo"),
+		'#size' => 60,
+		'#maxlength' => 124,
+		'#default_value' => variable_get('footer_logo','/sites/all/...'),
+		'#description' => t('Enter a path to the logo'),
+	);
+ 	$form['submit'] = array(
+    	'#type' => 'submit',
+    	'#value' => 'Submit',
+  	);
+  	return $form;
+}
+
+function logos_form_submit(&$form_state){
+	variable_set('header_logo',$form_state['header_logo']['#value']);
+	variable_set('header_logo_url',$form_state['header_logo_url']['#value']);
+	variable_set('footer_logo',$form_state['footer_logo']['#value']);
+	drupal_set_message('Changes have been saved.');
+}
+
+/**
+ * Form validate the path of given url's.
+ */
+function logos_settings_form_validate($form, &$form_state) {
+	$base = $_SERVER['DOCUMENT_ROOT'];
+	$path = $form_state['values']['header_logo'];
+	$uri = $base.$path;
+	if (!file_exists($uri)) {
+	  form_set_error('header_logo',t('file for header does not exist'));
+	}
+	$path = $form_state['values']['footer_logo'];
+	$uri = $base.$path;
+	if (!file_exists($uri)) {
+	  form_set_error('footer_logo',t('file for footer does not exist'));
+	}
+}
+
+function logos_preprocess_page(&$vars)
+{
+	$vars['logos']['header']['logo_path'] = variable_get('header_logo');
+	$vars['logos']['header']['logo_url'] = variable_get('header_logo_url');
+	$vars['logos']['footer']['logo_path'] = variable_get('footer_logo');
+}

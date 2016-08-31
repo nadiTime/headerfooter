@@ -1,0 +1,4 @@
+name = Logos Module
+description = Add sites header and footer logos
+core = 7.x
+files[] = logos.module

@@ -27,17 +27,16 @@
   <!-- header
   ================================================== -->
   <?php
-    //dpm($variables);
-    //dpm(menu_get_menus());
-    $user_menu = menu_navigation_links('logged-user-menu');
-    //dpm($user_menu);
-    dpm(menu_navigation_links('main-menu'));
-    dpm(menu_navigation_links('menu-logged-user-menu'));
-    theme('links__system_main_menu');
   ?>
   <!-- Content
   ================================================== -->
   <div id="content">
+    <?php if ($page['logged_user_menu']): ?>
+      <div class="row" id="logged-user-menu">
+        <?php
+        ?>
+      </div>
+  <?php endif; ?>
     <?php if ($page['slider']): ?>
       <section id="layerslider-container">
         <?php print render($page['slider']); ?>
@@ -56,7 +55,7 @@
       <?php if ($title): ?>
         <?php if (!drupal_is_front_page()): ?> <!-- NOT FRONT PAGE -->
             <div class="row" id="header-not-front-page">
-              <?php include_once 'headers_footers/header_'.$path.'.php' ;?>
+              <?php print $header ?>
               <div class="col-xs-12">
                 <hr>
               </div>
@@ -101,7 +100,7 @@
             });
           </script>
         <div class="row" id="header">
-           <?php include_once 'headers_footers/header_'.$path.'.php' ;?>
+           <?php print $header ?>
           </div>
       <?php endif; ?>
     <?php if (drupal_is_front_page() && !theme_get_setting('homepage_title', 'nevia')): ?>

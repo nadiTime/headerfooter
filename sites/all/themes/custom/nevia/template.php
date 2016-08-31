@@ -33,8 +33,6 @@ function nevia_preprocess_html(&$variables) {
 
 function nevia_preprocess_page(&$variables) {
 
-
-
   if (!module_exists('jquery_update')) {
     drupal_set_message(t('Jquery update is required, <a target="_blank" href="!url">Download it</a>,  install and switch jquery to version 1.7', array('!url' => 'http://drupal.org/project/jquery_update')), 'warning');
   }
@@ -54,6 +52,10 @@ function nevia_preprocess_page(&$variables) {
   $variables['containner_class'] = $container_class;
   $variables['content_class'] = $content_class;
   $variables['main_menu'] = menu_main_menu();
+  $main_menu_tree = menu_tree_all_data('main-menu');
+   dpm(menu_load_links('menu-logged-user-menu')); 
+  $logged_user_menu = menu_tree_all_data('menu-logged-user-menu');
+  $variables['header'] = test_innovators_header($main_menu_tree, $logged_user_menu);
 }
 
 function nevia_format_comma_field($field_category, $node, $limit = NULL) {
@@ -639,4 +641,79 @@ function nevia_form_alter(&$form, &$form_state, $form_id) {
    $_SESSION['messages'] = '';
    drupal_set_message("Email with password reset instructions was sent to your mailbox");
 } 
+/**
+ * [test_innovators_main_menu description]
+ * @param  array $tree main menu tree to loop over
+ * @return string       rendered main menu html
+ */
+function test_innovators_header($main_menu, $user_menu){
+  $main_menu_html = '';
+  $user_menu_html = '';
+  //check if menu is visible by user
+  if(!empty($main_menu)){
+    //set main menu logo
+    $main_logo_path = isset($logos['header']) ? $logos['header']['logo_path'] : '/misc/druplicon.png'; 
+    $main_logo_href = isset($logos['header']) ? $logos['header']['logo_url'] : '/'; 
+    
+    $main_menu_html .= '<div class="navbar-header">';
+    $main_menu_html .= '<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">';
+    $main_menu_html .= '<span class="sr-only">Toggle navigation</span>';
+    $main_menu_html .= '<div class="burger-menu"><i class="fa fa-bars fa-2x" aria-hidden="true"></i></div>';
+    $main_menu_html .= '</button>';
+    $main_menu_html .= '<a class="navbar-brand" id="navbar-brand" href="' . $main_logo_href . '">';
+    $main_menu_html .= '<img src="' . $main_logo_path . '">';
+    $main_menu_html .= '</a>';
+    $main_menu_html .= '</div>';
+    $main_menu_html .= '<div id="main-nav">';
+    $main_menu_html .= '<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">';
+    $main_menu_html .= '<ul class="nav navbar-nav navbar-right">';
+    $main_menu_html .= build_li_list($main_menu);
+    $main_menu_html .= '</ul>';
+    $main_menu_html .= '</div>';
+    $main_menu_html .= '</div>';
+  }
+  //check if menu is visible by user
+  if(!empty($user_menu)){
+    $user_menu_html .= '<ul id="logged-nav">';
+    $user_menu_html .= build_li_list($user_menu);
+    $user_menu_html .= '</ul>';
+  }
+  $header =   '<nav class="navbar">';
+  $header .=  '<div class="container inov-nav">';
+  $header .= $user_menu_html;
+  $header .= $main_menu_html;
+  return $header;
+}
 
+function build_li_list($menu_array){
+  $li_list = '';
+  dpm($menu_array);
+  foreach ($menu_array as $link) { //itterate over all first level menu links
+    $ul_below = '';
+    $li_attr = '';
+    $a_attr = '';
+    $caret = '';
+    $a = '<a href="/'.$link['link']['link_path'].'"';
+    if(!empty($link['below'])){
+      $li_attr = ' class="dropdown"';
+      $a_attr = ' class="dropdown-toggle disabled" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"';
+      $caret = '<span class="caret';
+      // caret disabled when expand on mobile is not marked
+      if($link['link']['options']['attributes']['expand_on_mobile']){
+        $caret .= ' expends-OM';
+      }
+      $caret .= '"><span>';
+      $ul_below = '<ul class="dropdown-menu">';
+      $ul_below .= build_li_list($link['below']);
+      $ul_below .= '</ul>';
+    }
+    //build li
+    $a .= $a_attr . '>'. $link['link']['link_title'] . $caret . '</a>';
+    $li = '<li' . $li_attr . '>' . $a . '</a>' . '</li>';
+    if($link['link']['options']['attributes']['info_link']){ //info_link overides all other attr
+      $li = '<li class="info_link">' . $link['link']['link_title'] . '</li>';
+    }
+    $li_list .= $li;
+  }
+  return $li_list;
+}
