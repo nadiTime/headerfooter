@@ -6114,7 +6114,7 @@ button.close {
   font-weight: 700;
   margin-bottom: 0;
 }
-.navbar ul li:first-child{
+.info-link{
   font-weight: 100;
   color: #000;
   padding: 15px;

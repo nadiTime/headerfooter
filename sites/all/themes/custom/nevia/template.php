@@ -692,7 +692,8 @@ function build_li_list($menu_array){
     $li_attr = '';
     $a_attr = '';
     $caret = '';
-    $a = '<a href="/'.$link['link']['link_path'].'"';
+    $a_href = 'href="/'.$link['link']['link_path'].'"';
+    $a = '<a ';
     if(!empty($link['below'])){
       $li_attr = ' class="dropdown"';
       $a_class = ' class="dropdown-toggle disabled';
@@ -702,7 +703,7 @@ function build_li_list($menu_array){
       if($link['link']['options']['attributes']['expand_on_mobile']){
         $caret .= ' expends-OM';
         $a_class .= ' expand-OM';
-        $a = '<a href="#"';
+        $a_href = 'href="#"';
       }
       $a_class .= '"';
       $caret .= '"><span>';
@@ -712,10 +713,10 @@ function build_li_list($menu_array){
       $a_attr .= $a_class;
     }
     //build li
-    $a .= $a_attr . '>'. $link['link']['link_title'] . $caret . '</a>';
+    $a .= $a_href . $a_attr . '>'. $link['link']['link_title'] . $caret . '</a>';
     $li = '<li' . $li_attr . '>' . $a . '</a>' . $ul_below . '</li>';
     if($link['link']['options']['attributes']['info_link']){ //info_link overides all other attr
-      $li = '<li class="info_link">' . $link['link']['link_title'] . '</li>';
+      $li = '<li class="info-link">' . $link['link']['link_title'] . '</li>';
     }
     if($link['link']['link_title'] == 'cart'){ // if title of link is cart then change title to cart icon
       $li = '<li><a href="' . $link['link']['link_path'] . '"><i class="fa fa-shopping-cart"></i></a></li>';
