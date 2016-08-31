@@ -55,7 +55,6 @@ function nevia_preprocess_page(&$variables) {
   $logos = $variables['logos'];
   
   $main_menu_tree = menu_tree_all_data('main-menu');
-  dpm($page);
   $logged_menu_available= isset($page['logged_user_menu']) ? TRUE : FALSE;
   
   //check if logged menu is available
