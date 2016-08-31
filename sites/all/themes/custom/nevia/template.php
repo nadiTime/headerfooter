@@ -659,9 +659,6 @@ function test_innovators_header($main_menu, $user_menu, $logos){
     $main_menu_html .= '<span class="sr-only">Toggle navigation</span>';
     $main_menu_html .= '<div class="burger-menu"><i class="fa fa-bars fa-2x" aria-hidden="true"></i></div>';
     $main_menu_html .= '</button>';
-    $main_menu_html .= '<a class="navbar-brand" id="navbar-brand" href="' . $main_logo_href . '">';
-    $main_menu_html .= '<img src="' . $main_logo_path . '">';
-    $main_menu_html .= '</a>';
     $main_menu_html .= '</div>';
     $main_menu_html .= '<div id="main-nav">';
     $main_menu_html .= '<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">';
@@ -673,14 +670,17 @@ function test_innovators_header($main_menu, $user_menu, $logos){
   }
   //check if menu is visible by user
   if(!empty($user_menu)){
+    $user_menu_html .=  '<div class="container inov-nav">';
     $user_menu_html .= '<ul id="logged-nav">';
     $user_menu_html .= build_li_list($user_menu);
     $user_menu_html .= '</ul>';
+    $user_menu_html .= '</div>';
   }
   $header =   '<nav class="navbar">';
-  $header .=  '<div class="container inov-nav">';
+  $header .= '<a class="navbar-brand" id="navbar-brand" href="' . $main_logo_href . '">';
+  $header .= '<img src="' . $main_logo_path . '">';
+  $header .= '</a>';
   $header .= $user_menu_html;
-  $header .= '</div>';
   $header .= $main_menu_html;
   $header .= '</nav>';
   return $header;
