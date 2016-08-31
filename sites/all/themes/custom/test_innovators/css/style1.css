@@ -6128,7 +6128,6 @@ button.close {
     width: 70%;
    }
 }
-
 .container.inov-nav{
   height: 2.5em;
 }
@@ -6300,11 +6299,12 @@ button.close {
     top: 2em;
   }
   #logged-nav{
-  float: right;
-  padding-right: 1.6em;
-  margin-top: 1em;
-  margin-bottom: 0;
-  font-weight: 100;
+    float: right;
+    padding-right: 1.6em;
+    margin-top: 1em;
+    margin-bottom: 0;
+    font-weight: 100;
+    width: 58%;
   }
   #logged-nav li{
     display: inline;
@@ -6661,6 +6661,13 @@ button.close {
   }
   .navbar{
     width: 100%;
+  }
+  .brand-logged{
+  position: relative;
+  top: 5.5em;
+  }
+  .navbar-logged{
+    top: -5em;
   }
 }
 

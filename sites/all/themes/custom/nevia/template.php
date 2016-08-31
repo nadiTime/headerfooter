@@ -685,15 +685,20 @@ function test_innovators_header($main_menu, $user_menu, $logos){
     $main_menu_html .= '</div>';
   }
   //check if menu is visible by user
+  $brand_class = '';
+  $navbar_class = '';
   if(!empty($user_menu)){
     $user_menu_html .=  '<div class="container inov-nav">';
     $user_menu_html .= '<ul id="logged-nav">';
     $user_menu_html .= build_li_list($user_menu);
     $user_menu_html .= '</ul>';
     $user_menu_html .= '</div>';
+
+    $brand_class .= ' brand-logged';
+    $navbar_class .= ' navbar-logged';
   }
-  $header =   '<nav class="navbar">';
-  $header .= '<a class="navbar-brand" id="navbar-brand" href="' . $main_logo_href . '">';
+  $header =   '<nav class="navbar' . $navbar_class . '">';
+  $header .= '<a class="navbar-brand' . $brand_class . '" id="navbar-brand" href="' . $main_logo_href . '">';
   $header .= '<img src="' . $main_logo_path . '">';
   $header .= '</a>';
   $header .= $user_menu_html;
