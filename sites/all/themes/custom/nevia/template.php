@@ -680,8 +680,9 @@ function test_innovators_header($main_menu, $user_menu, $logos){
   $header =   '<nav class="navbar">';
   $header .=  '<div class="container inov-nav">';
   $header .= $user_menu_html;
+  $header .= '</div>';
   $header .= $main_menu_html;
-  $header .= '</div></nav>';
+  $header .= '</nav>';
   return $header;
 }
 

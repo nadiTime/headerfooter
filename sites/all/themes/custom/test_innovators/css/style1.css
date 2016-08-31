@@ -6110,10 +6110,14 @@ button.close {
   vertical-align: middle;
 }
 .navbar{
+  width: 57%;
+  margin: 0 auto;
   color: #7395b5;
   font-weight: 700;
   margin-bottom: 0;
 }
+
+
 .info-link{
   font-weight: 100;
   color: #000;
@@ -6136,6 +6140,9 @@ button.close {
 #logged-nav li{
   display: inline;
   padding: 1em;
+}
+#logged-nav li:last-child{
+  padding-right: 0
 }
 .dropdown-menu li{
   padding: 1em;
