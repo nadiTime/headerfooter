@@ -52,10 +52,10 @@ function nevia_preprocess_page(&$variables) {
   $variables['containner_class'] = $container_class;
   $variables['content_class'] = $content_class;
   $variables['main_menu'] = menu_main_menu();
+  $logos = $variables['logos'];
   $main_menu_tree = menu_tree_all_data('main-menu');
-   dpm(menu_load_links('menu-logged-user-menu')); 
   $logged_user_menu = menu_tree_all_data('menu-logged-user-menu');
-  $variables['header'] = test_innovators_header($main_menu_tree, $logged_user_menu);
+  $variables['header'] = test_innovators_header($main_menu_tree, $logged_user_menu, $logos);
 }
 
 function nevia_format_comma_field($field_category, $node, $limit = NULL) {
@@ -646,7 +646,7 @@ function nevia_form_alter(&$form, &$form_state, $form_id) {
  * @param  array $tree main menu tree to loop over
  * @return string       rendered main menu html
  */
-function test_innovators_header($main_menu, $user_menu){
+function test_innovators_header($main_menu, $user_menu, $logos){
   $main_menu_html = '';
   $user_menu_html = '';
   //check if menu is visible by user
@@ -654,7 +654,6 @@ function test_innovators_header($main_menu, $user_menu){
     //set main menu logo
     $main_logo_path = isset($logos['header']) ? $logos['header']['logo_path'] : '/misc/druplicon.png'; 
     $main_logo_href = isset($logos['header']) ? $logos['header']['logo_url'] : '/'; 
-    
     $main_menu_html .= '<div class="navbar-header">';
     $main_menu_html .= '<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">';
     $main_menu_html .= '<span class="sr-only">Toggle navigation</span>';
@@ -682,12 +681,12 @@ function test_innovators_header($main_menu, $user_menu){
   $header .=  '<div class="container inov-nav">';
   $header .= $user_menu_html;
   $header .= $main_menu_html;
+  $header .= '</div></nav>';
   return $header;
 }
 
 function build_li_list($menu_array){
   $li_list = '';
-  dpm($menu_array);
   foreach ($menu_array as $link) { //itterate over all first level menu links
     $ul_below = '';
     $li_attr = '';
@@ -696,22 +695,30 @@ function build_li_list($menu_array){
     $a = '<a href="/'.$link['link']['link_path'].'"';
     if(!empty($link['below'])){
       $li_attr = ' class="dropdown"';
-      $a_attr = ' class="dropdown-toggle disabled" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"';
+      $a_class = ' class="dropdown-toggle disabled';
+      $a_attr = 'data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"';
       $caret = '<span class="caret';
       // caret disabled when expand on mobile is not marked
       if($link['link']['options']['attributes']['expand_on_mobile']){
         $caret .= ' expends-OM';
+        $a_class .= ' expand-OM';
+        $a = '<a href="#"';
       }
+      $a_class .= '"';
       $caret .= '"><span>';
       $ul_below = '<ul class="dropdown-menu">';
       $ul_below .= build_li_list($link['below']);
       $ul_below .= '</ul>';
+      $a_attr .= $a_class;
     }
     //build li
     $a .= $a_attr . '>'. $link['link']['link_title'] . $caret . '</a>';
-    $li = '<li' . $li_attr . '>' . $a . '</a>' . '</li>';
+    $li = '<li' . $li_attr . '>' . $a . '</a>' . $ul_below . '</li>';
     if($link['link']['options']['attributes']['info_link']){ //info_link overides all other attr
       $li = '<li class="info_link">' . $link['link']['link_title'] . '</li>';
+    }
+    if($link['link']['link_title'] == 'cart'){ // if title of link is cart then change title to cart icon
+      $li = '<li><a href="' . $link['link']['link_path'] . '"><i class="fa fa-shopping-cart"></i></a></li>';
     }
     $li_list .= $li;
   }

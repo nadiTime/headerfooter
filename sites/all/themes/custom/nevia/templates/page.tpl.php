@@ -208,6 +208,23 @@
       </div>
     </div>
   </div>
+  <script type="text/javascript">
+      function navbar_dropdown_mod(){
+        $(".dropdown-toggle").toggleClass("disabled");
+        $(".expand-OM").click(function(){
+          $(".navbar-collapse").toggleClass("expand");
+        });
+      }
+      var width = $(window).width();
+      if(width<768){
+       navbar_dropdown_mod();
+      }
+      $( window ).resize(function() {
+        if(width<768){
+          navbar_dropdown_mod();
+        }
+      });
+      </script>
 </div>
 <!-- Wrapper / End -->
 
