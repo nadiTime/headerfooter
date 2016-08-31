@@ -55,14 +55,24 @@ function nevia_preprocess_page(&$variables) {
   $logos = $variables['logos'];
   
   $main_menu_tree = menu_tree_all_data('main-menu');
-  $logged_user_menu = menu_tree_all_data('menu-logged-user-menu');
+  dpm($page);
+  $logged_menu_available= isset($page['logged_user_menu']) ? TRUE : FALSE;
+  
+  //check if logged menu is available
+  if($logged_menu_available){
+    $logged_user_menu = menu_tree_all_data('menu-logged-user-menu');
+  }
+  else{
+    $logged_user_menu = array();
+  }
   
   $variables['header'] = test_innovators_header($main_menu_tree, $logged_user_menu, $logos);
+  
   $footer_list_links  = reset($page['footer_list_links'])['#markup'];
   $footer_social = reset($page['footer_contact_social'])['#markup'];
   $footer_disclaimer = reset($page['footer_disclaimer'])['#markup'];
   $variables['footer'] = test_innovators_footer($footer_list_links, $footer_social,$footer_disclaimer, $logos);
-  dpm($page);
+
 }
 
 function nevia_format_comma_field($field_category, $node, $limit = NULL) {
