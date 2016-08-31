@@ -32,7 +32,10 @@ regions[help] = Help
 regions[page_top] = Page Top
 regions[page_bottom] = Page Bottom
 
-regions[footer] = Footer
+regions[footer_logo] = Footer Logo
+regions[footer_list_links] = Footer List Links
+regions[footer_contact_social] = Footer Social
+regions[footer_disclaimer] = Footer Disclaimer
 
 
 features[] = logo

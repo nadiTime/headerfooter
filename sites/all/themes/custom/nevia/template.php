@@ -53,9 +53,16 @@ function nevia_preprocess_page(&$variables) {
   $variables['content_class'] = $content_class;
   $variables['main_menu'] = menu_main_menu();
   $logos = $variables['logos'];
+  
   $main_menu_tree = menu_tree_all_data('main-menu');
   $logged_user_menu = menu_tree_all_data('menu-logged-user-menu');
+  
   $variables['header'] = test_innovators_header($main_menu_tree, $logged_user_menu, $logos);
+  $footer_list_links  = reset($page['footer_list_links'])['#markup'];
+  $footer_social = reset($page['footer_contact_social'])['#markup'];
+  $footer_disclaimer = reset($page['footer_disclaimer'])['#markup'];
+  $variables['footer'] = test_innovators_footer($footer_list_links, $footer_social,$footer_disclaimer, $logos);
+  dpm($page);
 }
 
 function nevia_format_comma_field($field_category, $node, $limit = NULL) {
@@ -684,6 +691,29 @@ function test_innovators_header($main_menu, $user_menu, $logos){
   $header .= $main_menu_html;
   $header .= '</nav>';
   return $header;
+}
+
+function test_innovators_footer($list_links, $social, $disclaimer,$logos){
+  $footer_logo_path = isset($logos['header']) ? $logos['footer']['logo_path'] : '/misc/druplicon.png'; 
+  $footer = '';
+  $footer .= '<div class="row-container row-footer row-container-footer">';
+  $footer .= '<div class="row">';
+  $footer .= '<div class="col-md-4">';
+  $footer .= '<div class="img-container">';
+  $footer .= '<img src="' . $footer_logo_path . '" class="logo img-responsive">';
+  $footer .= '</div>';
+  $footer .= '</div>';
+  $footer .=  '<div class="col-md-2">';
+  $footer .= $list_links;
+  $footer .= '</div>';
+  $footer .= '<div class="col-md-2 col-md-offset-1">';
+  $footer .= $social;
+  $footer .= '</div>';
+  $footer .= '</div>';
+  $footer .= '<hr>';
+  $footer .= $disclaimer;
+  $footer .= '</div>';
+  return $footer;
 }
 
 function build_li_list($menu_array){

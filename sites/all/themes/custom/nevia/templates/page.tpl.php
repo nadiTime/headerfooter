@@ -201,7 +201,7 @@
   </div>
   <!-- Content / End -->
   <div id="footer">
-    <?php include_once 'headers_footers/footer_'.$path.'.php'; ?>
+    <?php print $footer; ?>
     <div class="container">
       <div class="sixteen columns">
         <?php print render($page['footer']); ?>
