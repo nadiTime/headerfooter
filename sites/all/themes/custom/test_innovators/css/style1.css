@@ -6112,22 +6112,13 @@ button.close {
 
 .navbar{
   width: 90%;
+  max-width: 970px;
   margin: 0 auto;
   color: #7395b5;
   font-weight: 700;
   margin-bottom: 0;
 }
 
-@media only screen and (min-width: 1366px){
-  .navbar{
-    width: 64%;
-  }
-}
-@media only screen and (min-width: 1600px) {
-  .navbar{
-    width: 70%;
-   }
-}
 .container.inov-nav{
   height: 2.5em;
 }
